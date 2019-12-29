@@ -36,9 +36,9 @@
     <div class="contract-edit">
       <h1 class="validity-title">Edit validity range</h1>
       <div class="price-validity">
-        <input type="text" />
+        <input type="text" :value="selectedContract.ValidityStart" />
         <p>-</p>
-        <input type="text" />
+        <input type="text" :value="selectedContract.ValidityEnd" />
         <div class="button-wrapper">
           <input type="submit" value="Send" />
         </div>
@@ -167,6 +167,7 @@ hr {
 
 .button-wrapper {
   margin-top: -1rem;
+  margin-right: 1rem;
 }
 
 input[type="text"] {
@@ -175,8 +176,10 @@ input[type="text"] {
   border-color: var(--lighter-gray);
   background: transparent;
   color: var(--primary-color);
+  font-size: 1.2rem;
   font-weight: 700;
   padding: 1rem 0.5rem;
+  max-width: 175px;
 }
 
 input[type="submit"] {

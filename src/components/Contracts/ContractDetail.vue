@@ -2,27 +2,29 @@
   <div class="contract-container">
     <div class="contract-header">
       <div>
-        <h1>4615037811</h1>
+        <h1>{{ selectedContract.AgreementNo}}</h1>
         <p class="supplier">
           Supplied by
-          <span class="supplier-name">Informatica Corporation</span>
+          <span class="supplier-name">{{ selectedContract.CompanyCodeDesc}}</span>
         </p>
       </div>
       <div>
-        <h2 class="price">10000.00</h2>
-        <h3 class="currency">EUR</h3>
+        <h2 class="price">{{ selectedContract.TargetValue }}</h2>
+        <h3 class="currency">{{ selectedContract.Currency }}</h3>
       </div>
     </div>
     <hr />
     <div class="contract-details">
       <div class="contract-origin-info">
-        <h1 class="contract-type">MK Agreement</h1>
-        <h2 class="contract-company">Service Organization, GBP</h2>
+        <h1 class="contract-type">{{ selectedContract.AgreementType }} Agreement</h1>
+        <h2 class="contract-company">{{ selectedContract.AgreementTypeDesc }}</h2>
         <p class="purchase-org">
-          <span>Purchase Org:</span> Europe
+          <span>Purchase Org:</span>
+          {{ selectedContract.PurchOrgDesc }}
         </p>
         <p class="incoterm">
-          <span>Incoterm:</span> CFR
+          <span>Incoterm:</span>
+          {{ selectedContract.Incoterm || 'N/A' }}
         </p>
       </div>
       <div class="contract-desc">
@@ -46,7 +48,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    selectedContract: {
+      type: Object,
+      required: true
+    }
+  }
+};
 </script>
 
 <style>

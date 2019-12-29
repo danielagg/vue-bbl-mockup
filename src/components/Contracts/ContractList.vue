@@ -1,7 +1,7 @@
 <template>
   <ul>
-    <li v-for="(item, index) in contracts" :key="index">
-      <div>
+    <li v-for="(item, index) in contracts" :key="index" @click="onClick(item)">
+      <div :class="[contractClass, (selectedContract === item) ? activeClass : '']">
         <h1>{{ item.AgreementNo }}</h1>
         <p class="supplier">
           Supplied by
@@ -19,6 +19,18 @@ export default {
       type: Array,
       required: true
     }
+  },
+  data() {
+    return {
+      selectedContract: null,
+      activeClass: "activeClass",
+      contractClass: "contractClass"
+    };
+  },
+  methods: {
+    onClick: function(item) {
+      this.selectedContract = item;
+    }
   }
 };
 </script>
@@ -26,29 +38,27 @@ export default {
 <style scoped>
 ul {
   list-style-type: none;
+  padding: 0;
   margin-top: 4.5rem;
-  padding: 0 0 0 1.4em;
   overflow: scroll;
   overflow-x: hidden;
   max-height: 70vh;
 }
 
-li {
-  margin-top: 2em;
+.contractClass {
   cursor: pointer;
   opacity: 0.5;
+  padding: 1.5rem;
 }
 
-li:hover {
+.contractClass:hover {
   opacity: 1;
 }
 
-li:active {
+.activeClass {
   opacity: 1;
-}
-
-li:first-child {
-  margin-top: 0;
+  background: white;
+  border-radius: 36px 0 0 36px;
 }
 
 h1 {

@@ -8,9 +8,7 @@
           Welcome to an end-to-end contract management platform, where you can
           easily view and edit contracts.
         </p>
-        <router-link class="btnContracts" to="contracts"
-          >Manage Contracts</router-link
-        >
+        <router-link class="btnContracts" to="contracts">Manage Contracts</router-link>
       </div>
       <div v-show="!userName.length">
         <h1>Loading user information...</h1>
@@ -42,16 +40,8 @@ h2,
 p {
   color: white;
   text-shadow: 2px 1px 1px #313131;
+  padding: 0.5rem 0;
 }
-
-h1 {
-  font-size: 2.8em;
-}
-
-h2 {
-  font-weight: normal;
-}
-
 .container {
   background: url(../../assets/landingBackground.jpg) no-repeat center center
     fixed;
@@ -73,7 +63,7 @@ h2 {
   display: inline-block;
   margin-top: 1em;
   padding: 1.2em 2.6em;
-  background: #2d7df3;
+  background: var(--primary-color);
   color: white;
   border-radius: 36px;
   text-decoration: none;

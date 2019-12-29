@@ -24,7 +24,7 @@ export default {
 <style scoped>
 .wrapper {
   background: #f3f3f3;
-  height: 100vh;
+  min-height: 100vh;
 }
 .container {
   display: flex;
@@ -32,13 +32,10 @@ export default {
   margin: 0 auto;
 }
 .contract-list {
-  background: blue;
-  width: 30%;
-  padding: 1em;
+  width: 25%;
 }
 .contract-detail {
-  background: green;
-  width: 70%;
-  padding: 1em;
+  width: 75%;
+  margin: 3rem 0;
 }
 </style>

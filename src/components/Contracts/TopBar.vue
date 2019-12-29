@@ -16,8 +16,8 @@ export default {
 
 <style scoped>
 .container {
-  background: #2d7df3;
-  height: 4em;
+  background: var(--primary-color);
+  height: 5em;
 }
 
 .inner-container {
@@ -31,7 +31,7 @@ export default {
 .btnHomeLink {
   color: white;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 26px;
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 </style>

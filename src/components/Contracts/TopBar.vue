@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
-    <div class="inner-container">
-      <router-link class="btnHomeLink" to="/"
-        >S2P Contract Maintenance</router-link
-      >
+  <div>
+    <div class="container">
+      <div class="inner-container">
+        <router-link class="btnHomeLink" to="/">S2P Contract Maintenance</router-link>
+      </div>
     </div>
   </div>
 </template>

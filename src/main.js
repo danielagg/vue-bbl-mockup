@@ -1,10 +1,17 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
 
-Vue.config.productionTip = false
+import { SetupAxiosInterceptor } from "./Axios/SetupAxiosInterceptor";
+import { AdalConfig } from "./Adal/AdalConfig";
+import { default as Adal } from "vue-adal";
+
+Vue.config.productionTip = false;
+
+SetupAxiosInterceptor();
+Vue.use(Adal, AdalConfig);
 
 new Vue({
   router,
   render: h => h(App)
-}).$mount('#app')
+}).$mount("#app");

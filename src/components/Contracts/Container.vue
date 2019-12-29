@@ -4,6 +4,7 @@
     <div class="container" v-if="contracts.length">
       <ContractList
         :contracts="contracts"
+        :selectedContract="selectedContract"
         :setSelectedContract="setSelectedContract"
         class="contract-list"
       />

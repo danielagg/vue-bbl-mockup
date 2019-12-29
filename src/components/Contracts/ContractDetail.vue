@@ -40,7 +40,7 @@
         <p>-</p>
         <input type="text" :value="selectedContract.ValidityEnd" />
         <div class="button-wrapper">
-          <input type="submit" value="Send" />
+          <input type="submit" value="Save" />
         </div>
       </div>
     </div>
@@ -166,7 +166,7 @@ hr {
 }
 
 .button-wrapper {
-  margin-top: -1rem;
+  margin-top: 0.5rem;
   margin-right: 1rem;
 }
 

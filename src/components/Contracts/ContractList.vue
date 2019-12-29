@@ -19,6 +19,10 @@ export default {
       type: Array,
       required: true
     },
+    selectedContract: {
+      type: Object,
+      required: true
+    },
     setSelectedContract: {
       type: Function,
       required: true
@@ -26,7 +30,6 @@ export default {
   },
   data() {
     return {
-      selectedContract: null,
       activeClass: "activeClass",
       contractClass: "contractClass"
     };
@@ -34,11 +37,7 @@ export default {
   methods: {
     onClick: function(item) {
       this.setSelectedContract(item);
-      this.selectedContract = item;
     }
-  },
-  created() {
-    this.selectedContract = this.contracts[0];
   }
 };
 </script>

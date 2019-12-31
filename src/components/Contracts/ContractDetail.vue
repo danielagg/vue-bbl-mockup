@@ -36,11 +36,11 @@
     <div class="contract-edit">
       <h1 class="validity-title">Edit validity range</h1>
       <div class="price-validity">
-        <input type="text" :value="selectedContract.ValidityStart" />
+        <input type="text" v-model="selectedContract.ValidityStart" />
         <p>-</p>
-        <input type="text" :value="selectedContract.ValidityEnd" />
+        <input type="text" v-model="selectedContract.ValidityEnd" />
         <div class="button-wrapper">
-          <input type="submit" value="Save" />
+          <input type="submit" value="Save" @click="onSave" />
         </div>
       </div>
     </div>
@@ -48,11 +48,55 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   props: {
     selectedContract: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    onSave: async function() {
+      const {
+        AgreementNo,
+        VendorNo,
+        VendorName,
+        AgreementType,
+        Currency,
+        CompanyCode,
+        PurchOrganization,
+        AgmtDate,
+        ValidityStart,
+        ValidityEnd
+      } = this.selectedContract;
+
+      const result = await axios.post("/api/sapdata/PostFromBody?query=IdSet", {
+        results: {
+          IdNo: "1",
+          DataChanged: "X",
+          IdToHead: {
+            results: [
+              {
+                IdNo: "1",
+                AgreementNo: AgreementNo,
+                VendorNo: VendorNo,
+                VendorName: VendorName,
+                AgreementType: AgreementType,
+                Currency: Currency,
+                CompanyCode: CompanyCode,
+                PurchOrganization: PurchOrganization,
+                AgmtDate: AgmtDate,
+                ValidityStart: ValidityStart,
+                ValidityEnd: ValidityEnd,
+                DataChanged: "X"
+              }
+            ]
+          }
+        }
+      });
+      console.log(result);
     }
   }
 };
